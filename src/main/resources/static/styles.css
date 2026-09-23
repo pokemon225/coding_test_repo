@@ -1,0 +1,98 @@
+:root {
+    --header-bg: #4f81bd;
+    --row-odd: #d0d8e8;
+    --row-even: #e9edf4;
+    --text: #1f2937;
+    --link: #1f3b63;
+    --error: #b91c1c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2rem 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--text);
+    background: #fff;
+}
+
+main {
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 0 1rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    -webkit-text-stroke: 1.5px var(--header-bg);
+    text-shadow: 2px 2px 0 #c6d4ea;
+    letter-spacing: 0.05em;
+}
+
+.intro {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.votes-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 2px;
+    font-size: 0.9rem;
+}
+
+.votes-table th,
+.votes-table td {
+    padding: 0.35rem 0.6rem;
+    text-align: left;
+    font-weight: normal;
+    width: 50%;
+}
+
+.votes-table thead th {
+    background: var(--header-bg);
+    color: #fff;
+    font-weight: bold;
+}
+
+.votes-table tbody tr:nth-child(odd) > *,
+.votes-table tfoot tr > * {
+    background: var(--row-odd);
+}
+
+.votes-table tbody tr:nth-child(even) > * {
+    background: var(--row-even);
+}
+
+.votes-table td.votes-cell,
+.votes-table thead th:last-child {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.votes-table tfoot td {
+    font-weight: bold;
+}
+
+.votes-table a {
+    color: var(--link);
+}
+
+.votes-table a:focus-visible {
+    outline: 2px solid var(--header-bg);
+    outline-offset: 2px;
+}
+
+.votes-cell.error {
+    color: var(--error);
+}
+
+.empty {
+    text-align: center;
+    font-style: italic;
+}

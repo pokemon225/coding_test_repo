@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: color-votes
+    runtime: docker
+    plan: free
+    healthCheckPath: /actuator/health

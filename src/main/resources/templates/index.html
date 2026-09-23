@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colors</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <script th:src="@{/app.js}" defer></script>
+</head>
+<body>
+<main>
+    <h1>Colors</h1>
+    <p class="intro">
+        Click on the Color Name to see how many votes for that color.<br>
+        When you do click on Total, the sum of above numbers will show.
+    </p>
+
+    <table class="votes-table" id="votes-table">
+        <thead>
+        <tr>
+            <th scope="col">Color</th>
+            <th scope="col">Votes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="color : ${colors}" class="color-row">
+            <th scope="row">
+                <a class="color-link"
+                   th:href="@{/api/colors/{id}/votes(id=${color.id})}"
+                   th:text="${color.name}">Red</a>
+            </th>
+            <td class="votes-cell" aria-live="polite"></td>
+        </tr>
+        <tr th:if="${colors.isEmpty()}">
+            <td colspan="2" class="empty">No colors found.</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <th scope="row"><a href="#" class="total-link" id="total-link">TOTAL</a></th>
+            <td class="votes-cell" id="total-cell" aria-live="polite"></td>
+        </tr>
+        </tfoot>
+    </table>
+</main>
+</body>
+</html>
